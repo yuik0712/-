@@ -1,93 +1,24 @@
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>대중교통 경로 조회</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        #result {
-            margin-top: 20px;
-            border: 1px solid #ccc;
-            padding: 10px;
-        }
-        .input-container {
-            margin-bottom: 15px;
-        }
-    </style>
+    <title>Transit Layer</title>
+    <script src="./test.js"></script>
+    <link rel="stylesheet" href="./test.css">
+    <!-- jsFiddle will insert css and js -->
 </head>
+
 <body>
-    <h1>대중교통 경로 조회</h1>
-    
-    <div class="input-container">
-        <label for="currentLocation">현재 위치:</label>
-        <input type="text" id="currentLocation" placeholder="현재 위치를 입력하세요">
-        <button id="currentLocationVoice">음성 인식</button>
+
+    <h1>충주 대중교통 경로 안내</h1>
+    <div id="inputContainer">
+        <input type="text" id="address" placeholder="목적지 주소 입력">
+        <button onclick="findRoute()">경로 찾기</button>
     </div>
-
-    <div class="input-container">
-        <label for="destination">목적지:</label>
-        <input type="text" id="destination" placeholder="목적지를 입력하세요">
-        <button id="destinationVoice">음성 인식</button>
-    </div>
-
-    <button id="fetchTransitRoute">경로 조회</button>
-
-    <div id="result"></div>
-
-    <script>
-        // 음성 인식 기능
-        function startVoiceRecognition(inputField) {
-            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-            recognition.lang = 'ko-KR';
-            recognition.interimResults = false;
-
-            recognition.onresult = function(event) {
-                const transcript = event.results[0][0].transcript;
-                $(inputField).val(transcript);
-            };
-
-            recognition.onerror = function(event) {
-                console.error('음성 인식 오류:', event.error);
-            };
-
-            recognition.start();
-        }
-
-        // 현재 위치 음성 인식 버튼 클릭 이벤트
-        $('#currentLocationVoice').on('click', function() {
-            startVoiceRecognition('#currentLocation');
-        });
-
-        // 목적지 음성 인식 버튼 클릭 이벤트
-        $('#destinationVoice').on('click', function() {
-            startVoiceRecognition('#destination');
-        });
-
-        // 버튼 클릭 시 경로 조회 함수
-        $('#fetchTransitRoute').on('click', async function() {
-            const currentLocation = $('#currentLocation').val();
-            const destination = $('#destination').val();
-
-            // 좌표 변환 로직을 여기에 추가할 수 있습니다.
-            const origin = { lat: 37.5349277, lng: 126.9027279 }; // 현재 위치 좌표 (예시)
-            const dest = { lat: 37.5499421, lng: 126.9145430 }; // 목적지 좌표 (예시)
-
-            try {
-                const response = await $.ajax({
-                    url: `http://localhost:3000/transit`, // 서버의 엔드포인트 URL
-                    method: 'GET',
-                    data: {
-                        origin: JSON.stringify(origin),
-                        destination: JSON.stringify(dest)
-                    }
-                });
-                $('#result').html(`<pre>${JSON.stringify(response, null, 2)}</pre>`); // JSON 결과를 화면에 출력
-            } catch (error) {
-                $('#result').html('대중교통 경로 조회에 실패했습니다.');
-                console.error(error);
-            }
-        });
-    </script>
+    <div id="map"></div>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfZmkexKmqDQl6I9sTKZST_VNQOvVHNqc&callback=initMap&v=weekly"
+        defer></script>
 </body>
+
 </html>
