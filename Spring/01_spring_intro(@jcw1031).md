@@ -15,6 +15,7 @@ Spring은 자바 (Java) 플랫폼을 기반으로 한 엔터프라이즈 애플�
 !!<b>대신 이거는 중요하게 보면 좋겠죵!!</b>
 - <b>Spring Framework</b>: Java 플랫폼을 위한 오픈소스 애플리케이션 프레임워크로, 엔터프라이즈 애플리케이션 개발을 위한 포괄적인 기능을 제공합니다.
   - <b>의존성 주입(Dependency Injection, DI)</b>: 객체 간의 의존성을 관리하여 코드의 결합도를 낮추고 테스트 용이성을 높입니다.
-  - 
+  - <b>관점 지향 프로그래밍(Aspect-Oriented Programming)</b>: 횡단 관심사를 모듈화하여 비즈니스 로직과 분리합니다. 예를 들어, 로깅이나 트랜잭션 관리 등을 포함합니다.
+  - <b></b>
 참고 - 출처
 https://velog.io/@jcw1031/Spring-Spring%EC%9D%B4%EB%9E%80
