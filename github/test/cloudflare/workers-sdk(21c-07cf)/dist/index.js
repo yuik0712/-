@@ -1,4 +1,4 @@
-import { CfWorker } from "./api/worker.js";
+import { CfWorker } from './api/worker.js';
 const account = {
     accountId: '...',
     zoneId: '...',
@@ -9,15 +9,15 @@ const init = {
         name: 'worker.js',
         type: 'commonjs',
         content: `
-      addEventListener('fetch', (event) => {
-        console.log(
-          event.request.method,
-          event.request.url,
-          new Map([...event.request.headers]),
-          event.request.cf)
-  
-        event.respondWith(new Response(DATE))
-      })`
+    addEventListener('fetch', (event) => {
+      console.log(
+        event.request.method,
+        event.request.url,
+        new Map([...event.request.headers]),
+        event.request.cf)
+
+      event.respondWith(new Response(DATE))
+    })`
     },
     variables: {
         DATE: new Date().toISOString()
