@@ -1,0 +1,3 @@
+jwt:
+  secret: myVerySecretKeyChangeThisToAStrongOne
+  expiration: 86400000 # 1 day in ms
