@@ -1,10 +1,10 @@
-package com.bum12ark.jwt_auth;
+package com.awt_auth.user_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JwtAuthApplicationTests {
+class UserServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
