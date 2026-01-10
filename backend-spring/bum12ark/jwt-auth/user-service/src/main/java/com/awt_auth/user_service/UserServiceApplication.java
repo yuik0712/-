@@ -1,13 +1,13 @@
-package com.bum12ark.jwt_auth;
+package com.awt_auth.user_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JwtAuthApplication {
+public class UserServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JwtAuthApplication.class, args);
+		SpringApplication.run(UserServiceApplication.class, args);
 	}
 
 }
