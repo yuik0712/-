@@ -1,4 +1,4 @@
-package com.awt_auth.user_service.domain.service.jwt.service;
+package com.awt_auth.user_service.domain.jwt.service;
 
 @Service
 @RequiredArgsConstructor

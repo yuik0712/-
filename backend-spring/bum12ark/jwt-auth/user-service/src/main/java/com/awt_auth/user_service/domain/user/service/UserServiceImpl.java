@@ -1,4 +1,4 @@
-package com.awt_auth.user_service.domain.service;
+package com.awt_auth.user_service.domain.user.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
